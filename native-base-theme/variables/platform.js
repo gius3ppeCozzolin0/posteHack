@@ -23,7 +23,7 @@ export default {
   badgePadding: platform === 'ios' ? 3 : 0,
 
   // Button
-  btnFontFamily: platform === 'ios' ? 'System' : 'Roboto_medium',
+  btnFontFamily: 'lineto-circular-book',
   btnDisabledBg: '#b5b5b5',
   btnDisabledClr: '#f1f1f1',
 
@@ -259,7 +259,7 @@ export default {
   noteFontSize: 14,
 
   // Title
-  titleFontfamily: platform === 'ios' ? 'System' : 'Roboto_medium',
+  titleFontfamily: 'lineto-circular-book',
   titleFontSize: platform === 'ios' ? 17 : 19,
   subTitleFontSize: platform === 'ios' ? 12 : 14,
   subtitleColor: platform === 'ios' ? '#8e8e93' : '#FFF',
