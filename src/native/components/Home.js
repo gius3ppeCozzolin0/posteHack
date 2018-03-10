@@ -156,9 +156,7 @@ class Home extends Component {
           <Button
             rounded
             style={styles.yellowBtn}
-            onPress={() => {
-              console.log('vedi tutti');
-            }}
+            onPress={Actions.channels}
           >
             <Text style={styles.textButton}>Nuovo pagamento</Text>
           </Button>
