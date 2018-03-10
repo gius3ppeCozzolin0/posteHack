@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { Container, Content, Form, Item, Input, Label, View, Button, Text } from 'native-base';
+import React from 'react';
+import { Container, Content, Form, Item, Input, View, Button, Text } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 
 const PayForm = () => (

@@ -7,14 +7,15 @@ import AppConfig from '../../constants/config';
 
 import AnalyticsComponent from '../components/Analytics';
 import HomeComponent from '../components/Home';
-import GroupsComponent from '../components/Groups';
-// import AllComponent from '../components/All';
 import ChannelsComponent from '../components/Channels';
 import QrComponent from '../components/Qr';
 import PayComponent from '../components/Pay';
 import FormComponent from '../components/Form';
+import GroupsContainer from '../containers/Groups';
+import GroupsComponent from '../components/Groups';
 
 const iconStyles = { width: 24, height: 24 };
+
 const Index = (
   <Stack>
     <Scene hideNavBar>
@@ -35,7 +36,7 @@ const Index = (
           icon={() => <Image style={iconStyles} source={require('../../images/team_black.png')} />}
           {...DefaultProps.navbarProps}
         >
-          <Scene key="groups" component={GroupsComponent} />
+          <Scene key="groups" Layout={GroupsComponent} component={GroupsContainer} />
         </Stack>
         <Stack
           hideNavBar

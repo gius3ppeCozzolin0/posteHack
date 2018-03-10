@@ -6,7 +6,7 @@ import configureStore from './src/store/index';
 
 import Loading from './src/native/components/Loading';
 
-const { persistor, store } = configureStore();
+const {  store } = configureStore();
 
 export default class App extends React.Component {
   constructor(props) {
@@ -29,6 +29,6 @@ export default class App extends React.Component {
   render() {
     const { fontLoaded } = this.state;
 
-    return (fontLoaded ? <Root store={store} persistor={persistor} /> : <Loading />);
+    return (fontLoaded ? <Root store={store} /> : <Loading />);
   }
 }

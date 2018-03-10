@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, View, Linking, Alert, Button } from 'native-base';
+import { Text, View } from 'native-base';
 
 import { BarCodeScanner, Permissions } from 'expo';
 import { Actions } from 'react-native-router-flux';
