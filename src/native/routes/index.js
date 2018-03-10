@@ -23,7 +23,7 @@ const Index = (
           icon={() => <Image style={iconStyles} source={require('../../images/home_black.png')} />}
           {...DefaultProps.navbarProps}
         >
-          <Scene key="home" component={AllComponent} />
+          <Scene key="home" component={HomeComponent} />
         </Stack>
         <Stack
           hideNavBar

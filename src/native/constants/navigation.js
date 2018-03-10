@@ -15,13 +15,11 @@ export default {
   tabProps: {
     swipeEnabled: false,
     activeBackgroundColor: 'rgba(0,0,0,0.1)',
-    inactiveBackgroundColor: "#FFF",
-    tabBarStyle: { backgroundColor: "#FFF" },
-    labelStyle: {color: "#000001"},
-    tabBarPosition: "bottom"
-    
+    inactiveBackgroundColor: '#FFF',
+    tabBarStyle: { backgroundColor: '#FFF' },
+    labelStyle: { color: '#000001' },
+    tabBarPosition: 'bottom',
   },
-
   icons: {
     style: { color: 'white' },
   },
