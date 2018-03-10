@@ -49,7 +49,16 @@ class Home extends Component {
     const { height, width } = Dimensions.get('window');
     return (
       <View key={index}>
-        <Text style={{ marginBottom: 30, textAlign: 'center' }}>{item.title}</Text>
+        <Text
+          style={{
+            marginBottom: 30,
+            textAlign: 'center',
+            color: '#0047BB',
+            fontSize: 21,
+          }}
+        >
+          {item.title}
+        </Text>
         <Image style={{ width, height: height - 260 }} source={{ uri: item.illustration }} />
       </View>
     );
