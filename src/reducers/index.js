@@ -1,3 +1,5 @@
+import groupsReducer from './groups';
+
 const rehydrated = (state = false, action) => {
   switch (action.type) {
     case 'persist/REHYDRATE':
@@ -8,5 +10,5 @@ const rehydrated = (state = false, action) => {
 };
 
 export default {
-  rehydrated,
+  groups: groupsReducer,
 };
