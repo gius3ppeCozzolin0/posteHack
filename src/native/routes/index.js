@@ -1,5 +1,6 @@
 import React from 'react';
 import { Scene, Tabs, Stack } from 'react-native-router-flux';
+import { Icon } from 'native-base';
 import { Image } from 'react-native';
 
 import DefaultProps from '../constants/navigation';
@@ -7,12 +8,12 @@ import AppConfig from '../../constants/config';
 
 import AnalyticsComponent from '../components/Analytics';
 import HomeComponent from '../components/Home';
+import GroupsComponent from '../components/Groups';
 import ChannelsComponent from '../components/Channels';
 import QrComponent from '../components/Qr';
 import PayComponent from '../components/Pay';
 import FormComponent from '../components/Form';
 import GroupsContainer from '../containers/Groups';
-import GroupsComponent from '../components/Groups';
 
 const iconStyles = { width: 24, height: 24 };
 
