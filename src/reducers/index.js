@@ -1,7 +1,3 @@
-import status from './status';
-import member from './member';
-import recipes from './recipes';
-
 const rehydrated = (state = false, action) => {
   switch (action.type) {
     case 'persist/REHYDRATE':
@@ -13,7 +9,4 @@ const rehydrated = (state = false, action) => {
 
 export default {
   rehydrated,
-  status,
-  member,
-  recipes,
 };

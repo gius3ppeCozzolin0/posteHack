@@ -23,11 +23,9 @@ const configureStore = () => {
     compose(applyMiddleware(...middleware)),
   );
 
-  const persistor = persistStore(
-    store,
-    null,
-    () => { store.getState(); },
-  );
+  const persistor = persistStore(store, null, () => {
+    store.getState();
+  });
 
   return { persistor, store };
 };
