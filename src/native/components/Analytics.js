@@ -1,12 +1,12 @@
 import React from 'react';
 import { Container, Content, Text } from 'native-base';
 
-const About = () => (
+const Analytics = () => (
   <Container>
     <Content padder>
-      <Text>Cleanup</Text>
+      <Text>Analytics</Text>
     </Content>
   </Container>
 );
 
-export default About;
+export default Analytics;
