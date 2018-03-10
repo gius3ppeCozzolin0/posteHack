@@ -1,6 +1,6 @@
 import React from 'react';
-import {FlatList,} from 'react-native';
-import {Container, Content, Text,} from 'native-base';
+import { FlatList } from 'react-native';
+import { Container, Content, Text } from 'native-base';
 import Spacer from './Spacer';
 
 const Groups = () => (
@@ -9,12 +9,8 @@ const Groups = () => (
       <FlatList
         numColumns={2}
         data={[{ image: 'whatever', title: 'CIAONEEE' }]}
-        renderItem={({ item }) => {
-            console.log('item', item);
-            return (
-              <Text>{item.title}</Text>
-            );
-          }}
+        renderItem={({ item }) => <Text key={item.title}>{item.title}</Text>}
+        keyExtractor={(item, index) => index}
       />
 
       <Spacer size={20} />

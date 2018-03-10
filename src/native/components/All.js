@@ -52,7 +52,7 @@ class All extends Component {
   }
   renderItem({ item, index }) {
     return (
-      <View>
+      <View key={index}>
         <Text>{item.title}</Text>
         <Image source={require('../../images/meme-1.png')} />
       </View>
