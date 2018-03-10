@@ -14,8 +14,14 @@ const styles = StyleSheet.create({
   },
   buttonStyle: { alignSelf: 'center' },
   textButton: {
+    color: '#0047BB',
+    fontSize: 16,
+  },
+  textButtonUnderline: {
     textDecorationLine: 'underline',
     color: '#0047BB',
+    marginTop: 0,
+    fontSize: 16,
   },
   sliderText: {
     marginBottom: 30,
@@ -33,10 +39,16 @@ const styles = StyleSheet.create({
   inactiveDots: {
     backgroundColor: 'rgba(0, 71, 187, 0.2)',
   },
+  yellowBtn: {
+    backgroundColor: '#EEDD00',
+    alignSelf: 'center',
+    marginTop: 10,
+    marginBottom: 10,
+  },
   content: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 48,
+    marginTop: 30,
     flex: 1,
   },
 });
@@ -124,9 +136,9 @@ class Home extends Component {
             data={this.state.entries}
             renderItem={this.renderItem}
             sliderWidth={width}
-            siderHeight={height - 400}
+            siderHeight={height - 300}
             itemWidth={width}
-            itemHeight={height - 400}
+            itemHeight={height - 300}
             onSnapToItem={(index) => {
               this.updateCurrentSlide(index);
             }}
@@ -139,7 +151,16 @@ class Home extends Component {
             }}
             style={styles.buttonStyle}
           >
-            <Text style={styles.textButton}>Vedi tutti</Text>
+            <Text style={styles.textButtonUnderline}>Vedi tutti</Text>
+          </Button>
+          <Button
+            rounded
+            style={styles.yellowBtn}
+            onPress={() => {
+              console.log('vedi tutti');
+            }}
+          >
+            <Text style={styles.textButton}>Nuovo pagamento</Text>
           </Button>
         </Content>
       </Container>
