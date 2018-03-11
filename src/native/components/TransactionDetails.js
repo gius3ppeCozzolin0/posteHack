@@ -32,9 +32,6 @@ const styles = StyleSheet.create({
 class TransactionDetails extends Component {
   constructor(props) {
     super(props);
-
-    console.log('hehehehehehhehe', props.match.params);
-    console.log('propspspspsp', props);
     this.state = {
       transaction: props.transactions[props.match.params.transactionId],
       expense: props.expenses[props.match.params.expenseId],
