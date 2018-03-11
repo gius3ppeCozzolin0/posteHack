@@ -32,10 +32,6 @@ const mapStateToProps = (state) => {
   const transactions = { ...state.transactions.items };
   const userTransactions = { ...state.userTransactions.items };
 
-  console.log('expenses', expenses);
-  console.log('transactions', transactions);
-  console.log('userTransactions', userTransactions);
-
   return {
     groupss: groups,
     groups: groupsOrder.map(groupId => groups[groupId]),

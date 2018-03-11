@@ -108,8 +108,8 @@ class Channels extends React.Component {
       ],
       utenze: [
         {
-          name: 'enel',
-          illustration: require('../../images/logos/enel.png'),
+          name: 'postemobile',
+          illustration: require('../../images/logos/postemobile.png'),
         },
         {
           name: 'a2a',

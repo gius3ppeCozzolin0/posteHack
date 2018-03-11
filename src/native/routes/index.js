@@ -20,16 +20,19 @@ import Transactions from '../components/Transactions';
 import TransactionDetails from '../components/TransactionDetails';
 import ChooseGroupComponent from '../components/ChooseGroup';
 import CreatePaymentContainer from '../containers/CreatePayment';
-import CreateFlashPaymentComponent from '../components/CreateFlashPayment'
+import CreateFlashPaymentComponent from '../components/CreateFlashPayment';
 import SelectGroupComponent from '../components/SelectGroup';
 import CreateGroupComponent from '../components/CreateGroup';
 import SelectGroupContainer from '../containers/SelectGroup';
 import CreateGroupContainer from '../containers/CreateGroup';
+import PosteItaliane from '../components/PosteItaliane';
 
 const iconStyles = { width: 24, height: 24 };
 
 const Index = (
   <Stack>
+    <Scene hideNavBar key="poste" component={PosteItaliane} />
+
     <Scene hideNavBar>
       <Tabs key="tabbar" swipeEnabled type="replace" showLabel {...DefaultProps.tabProps}>
         <Stack
@@ -108,13 +111,7 @@ const Index = (
       component={GroupsContainer}
       Layout={TransactionDetails}
     />
-    <Scene
-      back
-      clone
-      key="payments"
-      title="payments"
-      component={PaymentsComponent}
-    />
+    <Scene back clone key="payments" title="payments" component={PaymentsComponent} />
     <Scene back clone key="payments" title="payments" component={PaymentsComponent} />
   </Stack>
 );
