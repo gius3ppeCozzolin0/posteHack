@@ -40,8 +40,8 @@ class Payments extends Component {
                 heading={tab}
                 tabStyle={{ backgroundColor: '#fff' }}
                 activeTabStyle={{ backgroundColor: '#fff', borderBottomColor: '#000' }}
-                textStyle={{ color: 'rgb(66,66,66)' }}
-                activeTextStyle={{ color: 'rgb(66,66,66)' }}
+                textStyle={{ color: 'rgb(189,189,189)', fontSize: 14 }}
+                activeTextStyle={{ color: 'rgb(66,66,66)', fontSize: 14 }}
               >
                 <View>
                   <Text>{tab}</Text>
