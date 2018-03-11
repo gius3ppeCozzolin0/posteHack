@@ -147,7 +147,7 @@ class Home extends Component {
           <Button transparent onPress={Actions.payments} style={styles.buttonStyle}>
             <Text style={styles.textButtonUnderline}>Vedi tutti</Text>
           </Button>
-          <YellowButton onPress={Actions.pay} label="Nuovo pagamento" />
+          <YellowButton small onPress={Actions.pay} label="Nuovo pagamento" />
         </Content>
       </Container>
     );

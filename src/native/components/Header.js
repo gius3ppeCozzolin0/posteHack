@@ -4,19 +4,29 @@ import { Body, Button, Header, Icon, Left, Right, Text, Title } from 'native-bas
 import { Image } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-const PosteHeader = ({ title, showBack, showLogo }) => (
+const PosteHeader = ({
+  title, showBack, showLogo, showExit,
+}) => (
   <Header
     iosBarStyle="dark-content"
     style={{
       backgroundColor: 'white',
       borderBottomColor: 'rgb(224,224,224)',
       alignItems: 'center',
+      height: 90,
     }}
   >
     {showBack && (
       <Left>
         <Button transparent onPress={() => Actions.pop()}>
           <Icon name="ios-arrow-round-back" style={{ color: '#424242' }} />
+        </Button>
+      </Left>
+    )}
+    {showExit && (
+      <Left>
+        <Button transparent onPress={() => Actions.pop()}>
+          <Icon name="ios-close" style={{ color: '#424242' }} />
         </Button>
       </Left>
     )}

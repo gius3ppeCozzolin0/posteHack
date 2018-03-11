@@ -2,7 +2,7 @@ import React from 'react';
 
 import { Button, Text } from 'native-base';
 
-const YellowButton = ({ onPress, label }) => (
+const YellowButton = ({ onPress, label, small }) => (
   <Button
     rounded
     style={{
@@ -12,6 +12,7 @@ const YellowButton = ({ onPress, label }) => (
       marginTop: 10,
       marginBottom: 10,
       minWidth: 150,
+      height: small ? 45 : 65,
     }}
     onPress={onPress}
   >

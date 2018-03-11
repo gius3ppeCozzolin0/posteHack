@@ -9,12 +9,15 @@ import AnalyticsComponent from '../components/Analytics';
 import HomeComponent from '../components/Home';
 import GroupsComponent from '../components/Groups';
 import ChannelsComponent from '../components/Channels';
+import ChannelContainer from '../containers/Channels';
 import QrComponent from '../components/Qr';
 import PayComponent from '../components/Pay';
 import PaymentsComponent from '../components/Payments';
-import FormComponent from '../components/Form';
+import CreatePaymentComponent from '../components/CreatePayment';
 import GroupsContainer from '../containers/Groups';
 import Group from '../components/Group';
+import ChooseGroupComponent from '../components/ChooseGroup';
+import CreatePaymentContainer from '../containers/CreatePayment';
 
 const iconStyles = { width: 24, height: 24 };
 
@@ -53,10 +56,15 @@ const Index = (
         </Stack>
       </Tabs>
       <Stack hideNavBar key="pay">
-        <Scene key="channels" component={ChannelsComponent} />
-        <Scene key="form" component={FormComponent} />
+        <Scene key="channels" Layout={ChannelsComponent} component={ChannelContainer} />
+        <Scene key="chooseGroup" component={ChooseGroupComponent} />
+        <Scene
+          key="createPayment"
+          Layout={CreatePaymentComponent}
+          component={CreatePaymentContainer}
+        />
         <Scene key="qr" component={QrComponent} />
-        <Scene key="pay" component={PayComponent} />
+        <Scene key="payNow" component={PayComponent} />
       </Stack>
     </Scene>
     <Scene
@@ -68,14 +76,7 @@ const Index = (
       component={GroupsContainer}
       Layout={Group}
     />
-    <Scene
-      back
-      clone
-      key="payments"
-      title="payments"
-      component={PaymentsComponent}
-    />
-
+    <Scene back clone key="payments" title="payments" component={PaymentsComponent} />
   </Stack>
 );
 

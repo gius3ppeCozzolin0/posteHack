@@ -7,6 +7,7 @@ import { SegmentedControls } from 'react-native-radio-buttons';
 import RadioButton from 'react-native-radio-button';
 import PosteHeader from './Header';
 import YellowButton from './YellowButton';
+import StepHeader from './StepHeader';
 
 const styles = StyleSheet.create({
   mainBG: {
@@ -39,7 +40,7 @@ const styles = StyleSheet.create({
   },
 });
 
-class PayForm extends React.Component {
+class CreatePayment extends React.Component {
   state = {
     ricorrente: false,
     selectedSegment: null,
@@ -74,13 +75,47 @@ class PayForm extends React.Component {
   };
 
   renderContainer = optionNodes => <View>{optionNodes}</View>;
-  render() {
+  renderReapet() {
+    const { channel } = this.props;
     const options = ['Settimanale', 'Mensile', 'Annuale'];
 
+    return !channel.flash ? (
+      <View style={styles.section}>
+        <Label style={styles.label}>Tipologia di pagamento</Label>
+        <CheckBox
+          checkBoxColor="#0047bb"
+          rightTextView={
+            <Text style={{ fontSize: 19, fontWeight: 'bold', marginLeft: 5 }}>Ricorrente</Text>
+          }
+          isChecked={this.state.ricorrente}
+          onClick={this.onRicorrenteClick}
+        />
+        <Text
+          style={{
+            marginLeft: 30,
+            marginBottom: 36,
+            marginTop: 8,
+            paddingRight: 50,
+            fontWeight: '300',
+          }}
+        >
+          La cadenza del pagamento avverrà con una frequenza mesile
+        </Text>
+        {this.state.ricorrente && (
+          <SegmentedControls
+            options={options}
+            onSelection={this.setSelectedOption}
+            selectedOption={this.state.selectedSegment}
+          />
+        )}
+      </View>
+    ) : null;
+  }
+  render() {
     return (
       <Container style={styles.mainBG}>
-        <PosteHeader showBack title="Crea pagamento" />
-
+        <PosteHeader showExit title="Crea pagamento" />
+        <StepHeader label="Imposta il pagamento" step="2/2" />
         <Content contentContainerStyle={styles.content} padder>
           <Form>
             <View style={styles.input}>
@@ -95,35 +130,7 @@ class PayForm extends React.Component {
                 <Input placeholderTextColor="#bdbdbd" placeholder="Inserisci l'importo" />
               </Item>
             </View>
-            <View style={styles.section}>
-              <Label style={styles.label}>Tipologia di pagamento</Label>
-              <CheckBox
-                checkBoxColor="#0047bb"
-                rightTextView={
-                  <Text style={{ fontSize: 19, fontWeight: 'bold', marginLeft: 5 }}>
-                    Ricorrente
-                  </Text>
-                }
-                isChecked={this.state.ricorrente}
-                onClick={this.onRicorrenteClick}
-              />
-              <Text
-                style={{
-                  marginLeft: 30,
-                  marginBottom: 36,
-                  marginTop: 8,
-                  paddingRight: 50,
-                  fontWeight: '300',
-                }}
-              >
-                La cadenza del pagamento avverrà con una frequenza mesile
-              </Text>
-              <SegmentedControls
-                options={options}
-                onSelection={this.setSelectedOption}
-                selectedOption={this.state.selectedSegment}
-              />
-            </View>
+            {this.renderReapet()}
 
             <View style={styles.section}>
               <Label style={styles.label}>Suddivisione del pagamento</Label>
@@ -167,7 +174,7 @@ class PayForm extends React.Component {
               </View>
             </View>
             <View style={styles.section}>
-              <YellowButton label="Avanti" onPress={() => {}} />
+              <YellowButton label="Avanti" onPress={Actions.chooseGroup} />
             </View>
           </Form>
         </Content>
@@ -175,4 +182,4 @@ class PayForm extends React.Component {
     );
   }
 }
-export default PayForm;
+export default CreatePayment;

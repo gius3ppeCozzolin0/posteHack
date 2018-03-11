@@ -20,7 +20,7 @@ class Qr extends React.Component {
   };
 
   _handleBarCodeRead = () => {
-    Actions.pay();
+    Actions.payNow();
   };
 
   render() {
