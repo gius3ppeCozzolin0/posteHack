@@ -54,8 +54,7 @@ const styles = StyleSheet.create({
     // other styles for the inner container
   },
   logoSmall: {
-    width: '70%',
-    height: '35%',
+    width: 100,
     resizeMode: 'contain',
   },
   content: {
@@ -122,7 +121,9 @@ class Channels extends React.Component {
     return (
       <View key={index} style={styles.slideBig}>
         <View style={styles.slideInnerContainerBig}>
-          <Image style={styles.logoBig} source={item.illustration} />
+          <TouchableHighlight onPress={Actions.form}>
+            <Image style={styles.logoBig} source={item.illustration} />
+          </TouchableHighlight>
         </View>
       </View>
     );
@@ -131,7 +132,9 @@ class Channels extends React.Component {
     return (
       <View key={index} style={styles.slideSmall}>
         <View style={styles.slideInnerContainerSmall}>
-          <Image style={styles.logoSmall} source={item.illustration} />
+          <TouchableHighlight onPress={Actions.form}>
+            <Image style={styles.logoSmall} source={item.illustration} />
+          </TouchableHighlight>
         </View>
       </View>
     );
@@ -143,11 +146,13 @@ class Channels extends React.Component {
         <Content contentContainerStyle={styles.content} padder>
           <View style={styles.section}>
             <Label style={styles.label}>Crea un pagamento da zero</Label>
-            <View style={styles.flashBox}>
-              <Image style={styles.flashLogo} source={require('../../images/logos/card.png')} />
-              <Text style={{ fontSize: 19 }}>Gestisci un gruppo</Text>
-              <Text style={{ fontSize: 19 }}>fai pagamenti immediati</Text>
-            </View>
+            <TouchableHighlight onPress={Actions.form}>
+              <View style={styles.flashBox}>
+                <Image style={styles.flashLogo} source={require('../../images/logos/card.png')} />
+                <Text style={{ fontSize: 19 }}>Gestisci un gruppo</Text>
+                <Text style={{ fontSize: 19 }}>fai pagamenti immediati</Text>
+              </View>
+            </TouchableHighlight>
           </View>
           <View style={styles.section}>
             <Label style={styles.label}>Entertaiment</Label>
