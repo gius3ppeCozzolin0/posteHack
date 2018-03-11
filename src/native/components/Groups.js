@@ -50,24 +50,6 @@ const Groups = ({ groups, contacts }) => (
     </View>
   </TouchableHighlight>
       ))}
-      {/* <List
-        style={{ backgroundColor: 'white' }}
-        dataArray={groups}
-        renderRow={({
- id, name, expense, contacts, image,
-}) => (
-  <ListItem avatar onPress={() => onPress(id)}>
-    <Left>
-      <Thumbnail source={image} />
-    </Left>
-    <Body style={{ paddingTop: 16, paddingBottom: 16 }}>
-      <Text style={{ paddingBottom: 8 }}>{name}</Text>
-      <Text note>{`${contacts.length} partecipanti`}</Text>
-    </Body>
-    <Right style={{ paddingTop: 16, paddingBottom: 16 }} />
-  </ListItem>
-        )}
-      /> */}
     </Content>
   </Container>
 );

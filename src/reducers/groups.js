@@ -39,7 +39,7 @@ const initialState = {
     3: {
       id: 3,
       name: 'my super group',
-      contacts: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+      contacts: [1, 2, 3, 4, 5, 6],
       expenses: [
         {
           id: 3,
@@ -67,7 +67,7 @@ const initialState = {
     5: {
       id: 5,
       name: 'my super group',
-      contacts: [1, 2, 3, 4, 5, 6, 7, 8],
+      contacts: [1, 2, 3, 4, 5, 6],
       expenses: [
         {
           id: 5,
@@ -95,7 +95,7 @@ const initialState = {
     7: {
       id: 7,
       name: 'my super group',
-      contacts: [1, 2, 3, 4, 5, 6, 7, 8, 9],
+      contacts: [1, 2, 3, 4, 5, 6],
       expenses: [
         {
           id: 7,
