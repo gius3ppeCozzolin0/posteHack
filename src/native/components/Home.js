@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Container, Content, Text, Button } from 'native-base';
-import { View, Image, Dimensions, StyleSheet } from 'react-native';
+import { View, Image, Dimensions, StyleSheet, TouchableHighlight } from 'react-native';
 
 import { Actions } from 'react-native-router-flux';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
@@ -88,17 +88,20 @@ class Home extends Component {
   renderItem({ item, index }) {
     const { height, width } = Dimensions.get('window');
     return (
-      <View
-        style={{
+      <TouchableHighlight onPress={() => Actions.transactions({ match: { params: { groupId: 1, expenseId: 1 } } })}>
+
+        <View
+          style={{
           width,
           justifyContent: 'center',
           alignItems: 'center',
         }}
-        key={index}
-      >
-        <Text style={styles.sliderText}>{item.title}</Text>
-        <Image style={{ width: 220, height: 220 }} source={item.illustration} />
-      </View>
+          key={index}
+        >
+          <Text style={styles.sliderText}>{item.title}</Text>
+          <Image style={{ width: 220, height: 220 }} source={item.illustration} />
+        </View>
+      </TouchableHighlight>
     );
   }
 
