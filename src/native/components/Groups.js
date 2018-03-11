@@ -1,13 +1,17 @@
 import React from 'react';
 import { Body, Container, Content, Left, List, ListItem, Right, Text, Thumbnail } from 'native-base';
-import Header from './Header';
 import { StyleSheet } from 'react-native';
+import { Actions } from 'react-native-router-flux';
+
+import Header from './Header';
 
 const styles = StyleSheet.create({
   mainBG: {
     backgroundColor: '#f1f1f1',
   },
 });
+
+const onPress = id => Actions.group({ match: { params: { id } } });
 
 const Groups = ({ groups }) => (
   <Container style={styles.mainBG}>
@@ -17,9 +21,11 @@ const Groups = ({ groups }) => (
         style={{ backgroundColor: 'white' }}
         dataArray={groups}
         renderRow={({
+ id,
  name, expense, contacts, image,
 }) => (
-  <ListItem avatar>
+
+  <ListItem avatar onPress={() => onPress(id)}>
     <Left>
       <Thumbnail source={image} />
     </Left>

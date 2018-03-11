@@ -1,6 +1,5 @@
 import React from 'react';
-import { Scene, Tabs, Stack } from 'react-native-router-flux';
-import { Icon } from 'native-base';
+import { Scene, Stack, Tabs } from 'react-native-router-flux';
 import { Image } from 'react-native';
 
 import DefaultProps from '../constants/navigation';
@@ -15,6 +14,7 @@ import PayComponent from '../components/Pay';
 import PaymentsComponent from '../components/Payments';
 import FormComponent from '../components/Form';
 import GroupsContainer from '../containers/Groups';
+import Group from '../components/Group';
 
 const iconStyles = { width: 24, height: 24 };
 
@@ -60,6 +60,15 @@ const Index = (
         <Scene key="payments" component={PaymentsComponent} />
       </Stack>
     </Scene>
+    <Scene
+      back
+      clone
+      key="group"
+      title="group"
+      {...DefaultProps.navbarProps}
+      component={GroupsContainer}
+      Layout={Group}
+    />
   </Stack>
 );
 
