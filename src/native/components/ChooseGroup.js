@@ -49,11 +49,19 @@ class ChooseGroup extends React.Component {
     selected: 'flash',
   };
   onNextClick = () => {
-    if (this.state.create) {
-      Actions.createGroup();
-      return;
+    if (this.state.selected) {
+      switch(this.state.selected) {
+        case 'new':
+          Actions.createGroup();
+          return;
+        case 'flash':
+          Actions.createFlashPayment();
+          return;
+        default:
+          Actions.selectGroup();
+          return;
+      }
     }
-    Actions.selectGroup();
   };
   render() {
     return (

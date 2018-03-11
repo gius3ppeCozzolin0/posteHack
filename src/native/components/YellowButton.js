@@ -2,9 +2,10 @@ import React from 'react';
 
 import { Button, Text } from 'native-base';
 
-const YellowButton = ({ onPress, label, small }) => (
+const YellowButton = ({ onPress, label, small, disabled=false }) => (
   <Button
     rounded
+    disabled={disabled}
     style={{
       backgroundColor: '#EEDD00',
       alignSelf: 'center',

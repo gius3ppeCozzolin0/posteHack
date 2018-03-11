@@ -130,49 +130,7 @@ class CreatePayment extends React.Component {
                 <Input placeholderTextColor="#bdbdbd" placeholder="Inserisci l'importo" />
               </Item>
             </View>
-            {this.renderReapet()}
 
-            <View style={styles.section}>
-              <Label style={styles.label}>Suddivisione del pagamento</Label>
-              <View flex style={styles.radioBtn}>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                  }}
-                >
-                  <RadioButton
-                    animation="bounceIn"
-                    isSelected={this.state.equal}
-                    onPress={this.onUq}
-                  />
-                  <Text style={{ marginLeft: 8, fontSize: 19, fontWeight: 'bold' }}>
-                    Parti uguali
-                  </Text>
-                </View>
-                <Text style={styles.subtitle}>
-                  La somma totale sarà suddivisa ugualmente fra tutti i partecipanti del gruppo
-                </Text>
-              </View>
-              <View flex style={styles.radioBtn}>
-                <View
-                  style={{
-                    flexDirection: 'row',
-                  }}
-                >
-                  <RadioButton
-                    animation="bounceIn"
-                    isSelected={!this.state.equal}
-                    onPress={this.onNotUq}
-                  />
-                  <Text style={{ marginLeft: 8, fontSize: 19, fontWeight: 'bold' }}>
-                    Divisi per quote
-                  </Text>
-                </View>
-                <Text style={styles.subtitle}>
-                  La somma totale potrà essere divisa in percentuali tra i diversi partecipanti
-                </Text>
-              </View>
-            </View>
             <View style={styles.section}>
               <YellowButton disabled={false} label="Avanti" onPress={Actions.qr} />
             </View>

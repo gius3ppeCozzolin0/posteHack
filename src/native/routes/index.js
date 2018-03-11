@@ -20,6 +20,7 @@ import Transactions from '../components/Transactions';
 import TransactionDetails from '../components/TransactionDetails';
 import ChooseGroupComponent from '../components/ChooseGroup';
 import CreatePaymentContainer from '../containers/CreatePayment';
+import CreateFlashPaymentComponent from '../components/CreateFlashPayment'
 import SelectGroupComponent from '../components/SelectGroup';
 import CreateGroupComponent from '../components/CreateGroup';
 import SelectGroupContainer from '../containers/SelectGroup';
@@ -67,6 +68,11 @@ const Index = (
         <Scene
           key="createPayment"
           Layout={CreatePaymentComponent}
+          component={CreatePaymentContainer}
+        />
+        <Scene
+          key="createFlashPayment"
+          Layout={CreateFlashPaymentComponent}
           component={CreatePaymentContainer}
         />
         <Scene key="selectGroup" component={SelectGroupContainer} Layout={SelectGroupComponent} />
