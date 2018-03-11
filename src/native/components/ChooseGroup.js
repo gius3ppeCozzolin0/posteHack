@@ -19,10 +19,7 @@ const styles = StyleSheet.create({
   },
   checkbox: {},
   content: {
-    alignItems: 'center',
-    justifyContent: 'center',
     marginTop: 30,
-    flex: 1,
   },
   label: {
     color: '#bdbdbd',
@@ -31,7 +28,7 @@ const styles = StyleSheet.create({
   },
   section: {
     marginBottom: 36,
-    height: 300,
+    height: 340,
   },
   radioBtn: {
     marginBottom: 36,
@@ -43,13 +40,13 @@ const styles = StyleSheet.create({
     fontWeight: '300',
   },
   submit: {
-    marginTop: 100,
+    marginTop: 0,
   },
 });
 
 class ChooseGroup extends React.Component {
   state = {
-    create: true,
+    selected: 'flash',
   };
   onNextClick = () => {
     if (this.state.create) {
@@ -75,8 +72,27 @@ class ChooseGroup extends React.Component {
               >
                 <RadioButton
                   animation="bounceIn"
-                  isSelected={this.state.create}
-                  onPress={() => this.setState({ create: true })}
+                  isSelected={this.state.selected === 'flash'}
+                  onPress={() => this.setState({ selected: 'flash' })}
+                />
+                <Text style={{ marginLeft: 8, fontSize: 19, fontWeight: 'bold' }}>
+                  Pagamento flash
+                </Text>
+              </View>
+              <Text style={styles.subtitle}>
+                La somma totale sarà suddivisa ugualmente fra tutti i partecipanti del gruppo
+              </Text>
+            </View>
+            <View flex style={styles.radioBtn}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                }}
+              >
+                <RadioButton
+                  animation="bounceIn"
+                  isSelected={this.state.selected === 'new'}
+                  onPress={() => this.setState({ selected: 'new' })}
                 />
                 <Text style={{ marginLeft: 8, fontSize: 19, fontWeight: 'bold' }}>
                   Nuovo gruppo
@@ -94,11 +110,11 @@ class ChooseGroup extends React.Component {
               >
                 <RadioButton
                   animation="bounceIn"
-                  isSelected={!this.state.create}
-                  onPress={() => this.setState({ create: false })}
+                  isSelected={!this.state.selected === 'exists'}
+                  onPress={() => this.setState({ selected: 'exists' })}
                 />
                 <Text style={{ marginLeft: 8, fontSize: 19, fontWeight: 'bold' }}>
-                  Gruppo esistente{' '}
+                  Gruppo esistente
                 </Text>
               </View>
               <Text style={styles.subtitle}>
