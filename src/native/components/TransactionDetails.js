@@ -56,7 +56,6 @@ class TransactionDetails extends Component {
           <Thumbnail source={transaction.image} />
           <View style={{
 paddingTop: 16,
-textAlign: 'center',
 flex: 1,
           justifyContent: 'center',
           alignItems: 'center',

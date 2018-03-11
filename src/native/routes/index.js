@@ -9,14 +9,21 @@ import AnalyticsComponent from '../components/Analytics';
 import HomeComponent from '../components/Home';
 import GroupsComponent from '../components/Groups';
 import ChannelsComponent from '../components/Channels';
+import ChannelContainer from '../containers/Channels';
 import QrComponent from '../components/Qr';
 import PayComponent from '../components/Pay';
 import PaymentsComponent from '../components/Payments';
-import FormComponent from '../components/Form';
+import CreatePaymentComponent from '../components/CreatePayment';
 import GroupsContainer from '../containers/Groups';
 import Group from '../components/Group';
 import Transactions from '../components/Transactions';
 import TransactionDetails from '../components/TransactionDetails';
+import ChooseGroupComponent from '../components/ChooseGroup';
+import CreatePaymentContainer from '../containers/CreatePayment';
+import SelectGroupComponent from '../components/SelectGroup';
+import CreateGroupComponent from '../components/CreateGroup';
+import SelectGroupContainer from '../containers/SelectGroup';
+import CreateGroupContainer from '../containers/CreateGroup';
 
 const iconStyles = { width: 24, height: 24 };
 
@@ -55,10 +62,17 @@ const Index = (
         </Stack>
       </Tabs>
       <Stack hideNavBar key="pay">
-        <Scene key="channels" component={ChannelsComponent} />
-        <Scene key="form" component={FormComponent} />
+        <Scene key="channels" Layout={ChannelsComponent} component={ChannelContainer} />
+        <Scene key="chooseGroup" component={ChooseGroupComponent} />
+        <Scene
+          key="createPayment"
+          Layout={CreatePaymentComponent}
+          component={CreatePaymentContainer}
+        />
+        <Scene key="selectGroup" component={SelectGroupContainer} Layout={SelectGroupComponent} />
+        <Scene key="createGroup" component={CreateGroupContainer} Layout={CreateGroupComponent} />
         <Scene key="qr" component={QrComponent} />
-        <Scene key="pay" component={PayComponent} />
+        <Scene key="payNow" component={PayComponent} />
       </Stack>
     </Scene>
     <Scene
@@ -95,7 +109,7 @@ const Index = (
       title="payments"
       component={PaymentsComponent}
     />
-
+    <Scene back clone key="payments" title="payments" component={PaymentsComponent} />
   </Stack>
 );
 

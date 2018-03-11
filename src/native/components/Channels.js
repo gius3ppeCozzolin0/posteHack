@@ -94,51 +94,61 @@ class Channels extends React.Component {
     this.state = {
       entertaiment: [
         {
+          name: 'netflix',
           illustration: require('../../images/logos/netflix.png'),
         },
         {
+          name: 'spotify',
           illustration: require('../../images/logos/spotify.png'),
         },
         {
+          name: 'apple_music',
           illustration: require('../../images/logos/apple_music.png'),
         },
       ],
       utenze: [
         {
+          name: 'enel',
           illustration: require('../../images/logos/enel.png'),
         },
         {
+          name: 'fastweb',
           illustration: require('../../images/logos/fastweb.png'),
         },
-
         {
+          name: 'a2a',
           illustration: require('../../images/logos/a2a.png'),
+        },
+        {
+          name: 'tim',
+          illustration: require('../../images/logos/tim.png'),
         },
       ],
     };
   }
-  renderItemBig({ item, index }) {
-    return (
-      <View key={index} style={styles.slideBig}>
-        <View style={styles.slideInnerContainerBig}>
-          <TouchableHighlight onPress={Actions.form}>
-            <Image style={styles.logoBig} source={item.illustration} />
-          </TouchableHighlight>
-        </View>
+  renderItemBig = ({ item, index }) => (
+    <View key={index} style={styles.slideBig}>
+      <View style={styles.slideInnerContainerBig}>
+        <TouchableHighlight onPress={() => this.onChannelClick(false, item.name)}>
+          <Image style={styles.logoBig} source={item.illustration} />
+        </TouchableHighlight>
       </View>
-    );
-  }
-  renderItemSmall({ item, index }) {
-    return (
-      <View key={index} style={styles.slideSmall}>
-        <View style={styles.slideInnerContainerSmall}>
-          <TouchableHighlight onPress={Actions.form}>
-            <Image style={styles.logoSmall} source={item.illustration} />
-          </TouchableHighlight>
-        </View>
+    </View>
+  );
+  renderItemSmall = ({ item, index }) => (
+    <View key={index} style={styles.slideSmall}>
+      <View style={styles.slideInnerContainerSmall}>
+        <TouchableHighlight onPress={() => this.onChannelClick(false, item.name)}>
+          <Image style={styles.logoSmall} source={item.illustration} />
+        </TouchableHighlight>
       </View>
-    );
-  }
+    </View>
+  );
+
+  onChannelClick = (flash, name) => {
+    this.props.chooseChannel(flash, name);
+    Actions.chooseGroup();
+  };
   render() {
     return (
       <Container style={styles.mainBG}>
@@ -146,7 +156,7 @@ class Channels extends React.Component {
         <Content contentContainerStyle={styles.content} padder>
           <View style={styles.section}>
             <Label style={styles.label}>Crea un pagamento da zero</Label>
-            <TouchableHighlight onPress={Actions.form}>
+            <TouchableHighlight onPress={() => this.onChannelClick(true, 'custom')}>
               <View style={styles.flashBox}>
                 <Image style={styles.flashLogo} source={require('../../images/logos/card.png')} />
                 <Text style={{ fontSize: 19 }}>Gestisci un gruppo</Text>

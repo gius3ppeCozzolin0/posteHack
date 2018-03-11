@@ -63,19 +63,19 @@ class Home extends Component {
           illustration: require('../../images/pie.png'),
         },
         {
-          title: 'Earlier this morning, NYC',
+          title: 'Bolletta',
           illustration: require('../../images/pie.png'),
         },
         {
-          title: 'White Pocket Sunset',
+          title: 'Cena',
           illustration: require('../../images/pie.png'),
         },
         {
-          title: 'Acrocorinth, Greece',
+          title: 'Pranzo',
           illustration: require('../../images/pie.png'),
         },
         {
-          title: 'The lone tree, majestic landscape of New Zealand',
+          title: 'Viaggio',
           illustration: require('../../images/pie.png'),
         },
       ],
@@ -147,7 +147,7 @@ class Home extends Component {
           <Button transparent onPress={Actions.payments} style={styles.buttonStyle}>
             <Text style={styles.textButtonUnderline}>Vedi tutti</Text>
           </Button>
-          <YellowButton onPress={Actions.pay} label="Nuovo pagamento" />
+          <YellowButton small onPress={Actions.pay} label="Nuovo pagamento" />
         </Content>
       </Container>
     );
