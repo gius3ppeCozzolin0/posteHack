@@ -1,4 +1,5 @@
 import groupsReducer from './groups';
+import contactsReducer from './contacts';
 
 const rehydrated = (state = false, action) => {
   switch (action.type) {
@@ -11,4 +12,5 @@ const rehydrated = (state = false, action) => {
 
 export default {
   groups: groupsReducer,
+  contacts: contactsReducer,
 };

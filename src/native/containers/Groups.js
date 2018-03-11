@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import groupsActions from '../actions/groups';
 
-const GroupsContainer = ({ Layout, groups }) => <Layout groups={groups} />;
+const GroupsContainer = ({ Layout, groups, match }) => <Layout groups={groups} match={match} />;
 
 const mapStateToProps = (state) => {
   const groups = { ...state.groups.items };
