@@ -64,7 +64,7 @@ class Group extends Component {
                 activeTextStyle={{ color: 'rgb(66,66,66)' }}
               >
                 {tab === 'PAGAMENTI' && (
-                  <View>
+                  <View style={{ paddingTop: 20, backgroundColor: '#f1f1f1' }}>
                     {group.expenses.map(({
  id, title, subtitle, image,
 }) => (
@@ -83,7 +83,7 @@ class Group extends Component {
                   </View>
                 )}
                 {tab === 'PARTECIPANTI' && (
-                  <View>
+                  <View style={{ paddingTop: 20, backgroundColor: '#f1f1f1' }}>
                     {group.contacts.map(id => (
                       <View key={id} style={styles.itemRow} avatar onPress={() => console.log(id)}>
                         <View style={{ width: 100 }}>
