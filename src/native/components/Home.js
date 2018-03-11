@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   content: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginTop: 30,
+    marginTop: 5,
     flex: 1,
   },
 });
@@ -60,23 +60,19 @@ class Home extends Component {
       entries: [
         {
           title: 'Netflix',
-          illustration: require('../../images/pie.png'),
+          illustration: require('../../images/pie_01.png'),
         },
         {
           title: 'Bolletta',
-          illustration: require('../../images/pie.png'),
+          illustration: require('../../images/pie_02.png'),
         },
         {
           title: 'Cena',
-          illustration: require('../../images/pie.png'),
+          illustration: require('../../images/pie_03.png'),
         },
         {
           title: 'Pranzo',
-          illustration: require('../../images/pie.png'),
-        },
-        {
-          title: 'Viaggio',
-          illustration: require('../../images/pie.png'),
+          illustration: require('../../images/pie_04.png'),
         },
       ],
     };
@@ -101,7 +97,7 @@ class Home extends Component {
         key={index}
       >
         <Text style={styles.sliderText}>{item.title}</Text>
-        <Image style={{ width: width - 114, height: width - 114 }} source={item.illustration} />
+        <Image style={{ width: 220, height: 220 }} source={item.illustration} />
       </View>
     );
   }
@@ -129,6 +125,9 @@ class Home extends Component {
         <Header showLogo />
 
         <Content contentContainerStyle={styles.content} padder>
+          <Text style={{ paddingBottom: 12, fontSize: 16 }} note>
+            Utlimi pagamenti
+          </Text>
           <Carousel
             ref={(c) => {
               this.carousel = c;
