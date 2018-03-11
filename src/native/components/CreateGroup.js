@@ -78,6 +78,8 @@ class CreateGroup extends React.Component {
             <FlatList
               data={Object.values(this.props.contacts)}
               style={styles.list}
+              keyExtractor={(item, index) => index}
+
               renderItem={({ item: { id, name } }) => (
                 <TouchableHighlight
                   key={id}
