@@ -1,4 +1,3 @@
-
 const initialState = {
   items: {
     1: {
@@ -11,37 +10,37 @@ const initialState = {
       id: 2,
       userId: 1,
       transactionId: 2,
-      failed: true,
+      failed: false,
     },
     3: {
       id: 3,
       userId: 1,
       transactionId: 3,
-      failed: true,
+      failed: false,
     },
     4: {
       id: 4,
       userId: 2,
       transactionId: 1,
-      failed: true,
+      failed: false,
     },
     5: {
       id: 5,
       userId: 2,
       transactionId: 2,
-      failed: true,
+      failed: false,
     },
     6: {
       id: 6,
       userId: 2,
       transactionId: 3,
-      failed: true,
+      failed: false,
     },
     7: {
       id: 7,
       userId: 3,
       transactionId: 1,
-      failed: true,
+      failed: false,
     },
     8: {
       id: 8,
@@ -53,19 +52,19 @@ const initialState = {
       id: 9,
       userId: 3,
       transactionId: 3,
-      failed: true,
+      failed: false,
     },
     10: {
       id: 10,
       userId: 4,
       transactionId: 1,
-      failed: true,
+      failed: false,
     },
     11: {
       id: 11,
       userId: 4,
       transactionId: 2,
-      failed: true,
+      failed: false,
     },
     12: {
       id: 12,
@@ -83,13 +82,13 @@ const initialState = {
       id: 14,
       userId: 5,
       transactionId: 2,
-      failed: true,
+      failed: false,
     },
     15: {
       id: 15,
       userId: 5,
       transactionId: 3,
-      failed: true,
+      failed: false,
     },
     16: {
       id: 16,
@@ -101,7 +100,7 @@ const initialState = {
       id: 17,
       userId: 6,
       transactionId: 2,
-      failed: true,
+      failed: false,
     },
     18: {
       id: 18,
