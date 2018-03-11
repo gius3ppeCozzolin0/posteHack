@@ -125,7 +125,8 @@ class Home extends Component {
     const { height, width } = Dimensions.get('window');
     return (
       <Container style={styles.mainBG}>
-        <Header title="Home" />
+        <Header showLogo />
+
         <Content contentContainerStyle={styles.content} padder>
           <Carousel
             ref={(c) => {
