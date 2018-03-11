@@ -4,16 +4,16 @@ import { Body, Button, Header, Icon, Left, Right, Title } from 'native-base';
 import { Actions } from 'react-native-router-flux';
 
 const PosteHeader = ({ title, showBack }) => (
-  <Header style={{ backgroundColor: 'white', borderBottomColor: 'red' }}>
+  <Header style={{ backgroundColor: 'white', borderBottomColor: 'rgb(224,224,224)' }}>
     <Left>
       {showBack && (
-      <Button transparent onPress={() => Actions.pop()}>
-        <Icon name="ios-arrow-round-back" style={{ color: '#424242' }} />
-      </Button>
+        <Button transparent onPress={() => Actions.pop()}>
+          <Icon name="ios-arrow-round-back" style={{ color: '#424242' }} />
+        </Button>
       )}
     </Left>
     <Body>
-      <Title style={{ color: 'red' }}>{title}</Title>
+      <Title style={{ color: 'rgb(66,66,66)', fontSize: 16 }}>{title}</Title>
     </Body>
     <Right />
   </Header>
