@@ -57,7 +57,6 @@ const Index = (
         <Scene key="form" component={FormComponent} />
         <Scene key="qr" component={QrComponent} />
         <Scene key="pay" component={PayComponent} />
-        <Scene key="payments" component={PaymentsComponent} />
       </Stack>
     </Scene>
     <Scene
@@ -69,6 +68,14 @@ const Index = (
       component={GroupsContainer}
       Layout={Group}
     />
+    <Scene
+      back
+      clone
+      key="payments"
+      title="payments"
+      component={PaymentsComponent}
+    />
+
   </Stack>
 );
 

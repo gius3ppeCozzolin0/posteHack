@@ -75,7 +75,7 @@ class Payments extends Component {
 
     return (
       <Container>
-        <Header title="Lista dei pagamenti" />
+        <Header title="Lista dei pagamenti" showBack />
         <Content>
           <Tabs
             edgeHitWidth={0.2}
