@@ -65,7 +65,7 @@ const Pay = () => (
         <Text style={{ fontSize: 40, marginBottom: 50, color: '#0047bb' }}>€ 125,60</Text>
       </View>
       <View style={{}}>
-        <YellowButton label="TORNA ALLA HOME" onPress={Actions.qr} />
+        <YellowButton label="TORNA ALLA HOME" onPress={Actions.home} />
       </View>
     </Content>
   </Container>

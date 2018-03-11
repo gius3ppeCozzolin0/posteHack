@@ -44,6 +44,8 @@ class CreatePayment extends React.Component {
   state = {
     ricorrente: false,
     selectedSegment: null,
+    title: '',
+    total: '',
     equal: true,
   };
 
@@ -59,6 +61,18 @@ class CreatePayment extends React.Component {
   setSelectedOption = (selectedSegment) => {
     this.setState({
       selectedSegment,
+    });
+  };
+
+  changeTitle = (value) => {
+    this.setState({
+      title: value,
+    });
+  };
+
+  changeTotal = (value) => {
+    this.setState({
+      total: value,
     });
   };
 
@@ -121,18 +135,30 @@ class CreatePayment extends React.Component {
             <View style={styles.input}>
               <Item stackedLabel>
                 <Label>Titolo</Label>
-                <Input placeholderTextColor="#bdbdbd" placeholder="Inserisci un titolo" />
+                <Input
+                  onChangeText={value => this.changeTitle(value)}
+                  placeholderTextColor="#bdbdbd"
+                  placeholder="Inserisci un titolo"
+                />
               </Item>
             </View>
             <View style={styles.input}>
               <Item stackedLabel>
                 <Label>Quanto vuoi richiedere?</Label>
-                <Input placeholderTextColor="#bdbdbd" placeholder="Inserisci l'importo" />
+                <Input
+                  onChangeText={value => this.changeTotal(value)}
+                  placeholderTextColor="#bdbdbd"
+                  placeholder="Inserisci l'importo"
+                />
               </Item>
             </View>
 
             <View style={styles.section}>
-              <YellowButton disabled={false} label="Avanti" onPress={Actions.qr} />
+              <YellowButton
+                disabled={this.state.title === '' || this.state.total === ''}
+                label="Avanti"
+                onPress={Actions.qr}
+              />
             </View>
           </Form>
         </Content>
