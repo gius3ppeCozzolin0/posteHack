@@ -16,11 +16,13 @@ const PosteHeader = ({
       height: 90,
     }}
   >
-    {showBack && (
+    {!showLogo && (
       <Left>
-        <Button transparent onPress={() => Actions.pop()}>
-          <Icon name="ios-arrow-round-back" style={{ color: '#424242' }} />
-        </Button>
+        {showBack && (
+          <Button transparent onPress={() => Actions.pop()}>
+            <Icon name="ios-arrow-round-back" style={{ color: '#424242' }} />
+          </Button>
+        )}
       </Left>
     )}
     {showExit && (
