@@ -161,7 +161,7 @@ class Channels extends React.Component {
             </TouchableHighlight>
           </View>
           <View style={styles.section}>
-            <Label style={styles.label}>Entertaiment</Label>
+            <Label style={styles.label}>Abbonamenti</Label>
             <FlatList
               keyExtractor={(item, index) => index}
               showsHorizontalScrollIndicator={false}

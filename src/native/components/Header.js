@@ -16,27 +16,23 @@ const PosteHeader = ({
       height: 90,
     }}
   >
-    {!showLogo && (
-      <Left>
-        {showBack && (
-          <Button transparent onPress={() => Actions.pop()}>
-            <Icon name="ios-arrow-round-back" style={{ color: '#424242' }} />
-          </Button>
-        )}
-        {showExit && (
-          <Button transparent onPress={() => Actions.pop()}>
-            <Icon name="ios-close" style={{ color: '#424242' }} />
-          </Button>
-        )}
-      </Left>
-    )}
+    <Left>
+      {showBack && (
+        <Button transparent onPress={() => Actions.pop()}>
+          <Icon name="ios-arrow-round-back" style={{ color: '#424242' }} />
+        </Button>
+      )}
+      {showExit && (
+        <Button transparent onPress={() => Actions.pop()}>
+          <Icon name="ios-close" style={{ color: '#424242' }} />
+        </Button>
+      )}
+    </Left>
 
     {!showLogo && (
-      <Body>
-        <Title style={{ color: 'rgb(66,66,66)', fontSize: 16, overflow: 'visible' }}>{title}</Title>
-      </Body>
+      <Title style={{ color: 'rgb(66,66,66)', fontSize: 16, overflow: 'visible' }}>{title}</Title>
     )}
-    {!showLogo && <Right />}
+
     {showLogo && (
       <Image
         resizeMode="contain"
@@ -44,6 +40,13 @@ const PosteHeader = ({
         source={require('../../images/logo_app.png')}
       />
     )}
+    <Right>
+      <Image
+        resizeMode="contain"
+        style={{ width: 42, height: 42 }}
+        source={require('../../images/contacts/personas_01.png')}
+      />
+    </Right>
   </Header>
 );
 
