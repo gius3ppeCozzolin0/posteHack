@@ -112,16 +112,12 @@ class Channels extends React.Component {
           illustration: require('../../images/logos/enel.png'),
         },
         {
-          name: 'fastweb',
-          illustration: require('../../images/logos/fastweb.png'),
-        },
-        {
           name: 'a2a',
           illustration: require('../../images/logos/a2a.png'),
         },
         {
-          name: 'tim',
-          illustration: require('../../images/logos/tim.png'),
+          name: 'edison',
+          illustration: require('../../images/logos/edison.png'),
         },
       ],
     };
