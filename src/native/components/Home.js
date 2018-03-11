@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { Container, Content, Text, Button } from 'native-base';
-import { Dimensions, StyleSheet } from 'react-native';
+import { View, Image, Dimensions, StyleSheet } from 'react-native';
 
 import { Actions } from 'react-native-router-flux';
-import Header from './Header';
-
 import Carousel, { Pagination } from 'react-native-snap-carousel';
-import { View, Image } from 'react-native';
+import Header from './Header';
 
 const styles = StyleSheet.create({
   mainBG: {

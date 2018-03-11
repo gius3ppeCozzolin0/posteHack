@@ -1,72 +1,163 @@
 import React from 'react';
-import { Container, Content, Text, View } from 'native-base';
-import { Image, TouchableHighlight } from 'react-native';
+import { Container, Content, Text, View, Label } from 'native-base';
+import { Image, TouchableHighlight, StyleSheet, Dimensions, FlatList } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-const Channels = () => (
-  <Container>
-    <Content padder>
-      <View>
-        <Text>Custom</Text>
-      </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-        }}
-      >
-        <View>
-          <TouchableHighlight onPress={Actions.form}>
-            <Image
-              style={{
-                width: 200,
-                height: 40,
-                resizeMode: 'contain',
-              }}
-              source={require('../../images/logos/spotify.png')}
-            />
-          </TouchableHighlight>
-        </View>
-        <View>
-          <Image
-            style={{
-              width: 200,
-              height: 40,
-              resizeMode: 'contain',
-            }}
-            source={require('../../images/logos/netflix.png')}
-          />
-        </View>
-      </View>
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-        }}
-      >
-        <View>
-          <Image
-            style={{
-              width: 200,
-              height: 40,
-              resizeMode: 'contain',
-            }}
-            source={require('../../images/logos/enel.png')}
-          />
-        </View>
-        <View>
-          <Image
-            style={{
-              width: 200,
-              height: 40,
-              resizeMode: 'contain',
-            }}
-            source={require('../../images/logos/tim.png')}
-          />
-        </View>
-      </View>
-    </Content>
-  </Container>
-);
+const { width } = Dimensions.get('window');
+const slideWidthBig = width * 0.52;
+const slideWidthSmall = width * 0.31;
 
+const styles = StyleSheet.create({
+  mainBG: {
+    backgroundColor: '#f1f1f1',
+  },
+  slideBig: {
+    width: slideWidthBig + 8,
+    height: 143,
+    // other styles for the item container
+  },
+  slideInnerContainerBig: {
+    width: slideWidthBig,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#424242',
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    backgroundColor: '#fff',
+    // other styles for the inner container
+  },
+  logoBig: {
+    width: 200,
+    height: 100,
+    resizeMode: 'contain',
+  },
+  slideSmall: {
+    width: slideWidthSmall + 8,
+    height: slideWidthSmall,
+    // other styles for the item container
+  },
+  slideInnerContainerSmall: {
+    width: slideWidthSmall,
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#424242',
+    shadowOpacity: 0.2,
+    shadowRadius: 1,
+    backgroundColor: '#fff',
+    // other styles for the inner container
+  },
+  logoSmall: {
+    width: 84,
+    height: 30,
+    resizeMode: 'contain',
+  },
+  content: {
+    marginTop: 30,
+    flex: 1,
+  },
+  label: {
+    color: '#424242',
+    fontSize: 16,
+    marginBottom: 16,
+  },
+  section: {
+    marginBottom: 16,
+  },
+  flashBox: {
+    width: '100%',
+    height: 143,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: '#424242',
+    shadowOpacity: 0.2,
+    shadowRadius: 4,
+    backgroundColor: '#fff',
+  },
+  flashLogo: {
+    width: 84,
+    height: 30,
+    resizeMode: 'contain',
+  },
+});
+class Channels extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      entertaiment: [
+        {
+          illustration: require('../../images/logos/netflix.png'),
+        },
+        {
+          illustration: require('../../images/logos/spotify.png'),
+        },
+      ],
+      utenze: [
+        {
+          illustration: require('../../images/logos/enel.png'),
+        },
+        {
+          illustration: require('../../images/logos/fastweb.png'),
+        },
+
+        {
+          illustration: require('../../images/logos/a2a.png'),
+        },
+      ],
+    };
+  }
+  renderItemBig({ item, index }) {
+    return (
+      <View key={index} style={styles.slideBig}>
+        <View style={styles.slideInnerContainerBig}>
+          <Image style={styles.logoBig} source={item.illustration} />
+        </View>
+      </View>
+    );
+  }
+  renderItemSmall({ item, index }) {
+    return (
+      <View key={index} style={styles.slideSmall}>
+        <View style={styles.slideInnerContainerSmall}>
+          <Image style={styles.logoSmall} source={item.illustration} />
+        </View>
+      </View>
+    );
+  }
+  render() {
+    return (
+      <Container style={styles.mainBG}>
+        <Content contentContainerStyle={styles.content} padder>
+          <View style={styles.section}>
+            <Label style={styles.label}>Crea un pagamento da zero</Label>
+            <View style={styles.flashBox}>
+              <Image style={styles.flashLogo} source={require('../../images/logos/enel.png')} />
+              <Text>Gestisci un gruppo</Text>
+              <Text>fai pagamenti immediati</Text>
+            </View>
+          </View>
+          <View style={styles.section}>
+            <Label style={styles.label}>Entertaiment</Label>
+            <FlatList
+              showsHorizontalScrollIndicator={false}
+              horizontal
+              data={this.state.entertaiment}
+              renderItem={this.renderItemBig}
+            />
+          </View>
+          <View style={styles.section}>
+            <Label style={styles.label}>Utenze</Label>
+            <FlatList
+              showsHorizontalScrollIndicator={false}
+              horizontal
+              data={this.state.utenze}
+              renderItem={this.renderItemSmall}
+            />
+          </View>
+        </Content>
+      </Container>
+    );
+  }
+}
 export default Channels;
