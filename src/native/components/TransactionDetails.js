@@ -53,7 +53,7 @@ class TransactionDetails extends Component {
         paddingBottom: 24,
 }}
         >
-          <Thumbnail source={transaction.image} />
+          <Thumbnail source={expense.image} />
           <View style={{
 paddingTop: 16,
 flex: 1,
