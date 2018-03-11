@@ -5,6 +5,7 @@ import { View, Image, Dimensions, StyleSheet } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
 import Header from './Header';
+import YellowButton from './YellowButton';
 
 const styles = StyleSheet.create({
   mainBG: {
@@ -145,9 +146,7 @@ class Home extends Component {
           <Button transparent onPress={Actions.payments} style={styles.buttonStyle}>
             <Text style={styles.textButtonUnderline}>Vedi tutti</Text>
           </Button>
-          <Button rounded style={styles.yellowBtn} onPress={Actions.pay}>
-            <Text style={styles.textButton}>Nuovo pagamento</Text>
-          </Button>
+          <YellowButton onPress={Actions.pay} label="Nuovo pagamento" />
         </Content>
       </Container>
     );
