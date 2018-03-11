@@ -4,7 +4,7 @@ export default {
   // App Details
   appName: 'PosteHack',
   home: "Home",
-  groups: "Groups",
+  groups: "Guppi",
   analytics: "Analytics",
 
   // Build Configuration - eg. Debug or Release?
