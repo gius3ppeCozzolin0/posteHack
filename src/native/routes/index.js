@@ -12,6 +12,7 @@ import GroupsComponent from '../components/Groups';
 import ChannelsComponent from '../components/Channels';
 import QrComponent from '../components/Qr';
 import PayComponent from '../components/Pay';
+import PaymentsComponent from '../components/Payments';
 import FormComponent from '../components/Form';
 import GroupsContainer from '../containers/Groups';
 
@@ -56,6 +57,7 @@ const Index = (
         <Scene key="form" component={FormComponent} />
         <Scene key="qr" component={QrComponent} />
         <Scene key="pay" component={PayComponent} />
+        <Scene key="payments" component={PaymentsComponent} />
       </Stack>
     </Scene>
   </Stack>

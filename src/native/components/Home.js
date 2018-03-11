@@ -144,13 +144,7 @@ class Home extends Component {
             }}
           />
           {this.pagination()}
-          <Button
-            transparent
-            onPress={() => {
-              console.log('vedi tutti');
-            }}
-            style={styles.buttonStyle}
-          >
+          <Button transparent onPress={Actions.payments} style={styles.buttonStyle}>
             <Text style={styles.textButtonUnderline}>Vedi tutti</Text>
           </Button>
           <Button rounded style={styles.yellowBtn} onPress={Actions.channels}>
