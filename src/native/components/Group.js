@@ -8,11 +8,17 @@ const styles = StyleSheet.create({
   mainBG: {
     backgroundColor: '#f1f1f1',
   },
+  parentItemRow: {
+    paddingLeft: 16,
+    paddingRight: 16,
+    backgroundColor: '#fff',
+  },
   itemRow: {
     backgroundColor: 'white',
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 16,
+    paddingTop: 16,
+    paddingBottom: 16,
     borderBottomColor: 'rgb(224,224,224)',
     borderBottomWidth: 1,
   },
@@ -23,7 +29,8 @@ const styles = StyleSheet.create({
   },
 });
 
-const onPress = (groupId, expenseId) => Actions.transactions({ match: { params: { groupId, expenseId } } });
+const onPress = (groupId, expenseId) =>
+  Actions.transactions({ match: { params: { groupId, expenseId } } });
 
 class Group extends Component {
   constructor(props) {
@@ -47,13 +54,15 @@ class Group extends Component {
 
     return (
       <TouchableHighlight key={expense.id} onPress={() => this.onPress(expense.id)}>
-        <View style={styles.itemRow} avatar >
-          <View style={{ width: 100 }}>
-            <Thumbnail source={expense.image} />
-          </View>
-          <View>
-            <Text style={{ paddingBottom: 8 }}>{expense.title}</Text>
-            <Text note>{expense.subtitle}</Text>
+        <View style={styles.parentItemRow} avatar>
+          <View style={styles.itemRow} avatar>
+            <View style={{ width: 100 }}>
+              <Thumbnail source={expense.image} />
+            </View>
+            <View>
+              <Text style={{ paddingBottom: 8 }}>{expense.title}</Text>
+              <Text note>{expense.subtitle}</Text>
+            </View>
           </View>
         </View>
       </TouchableHighlight>
@@ -62,7 +71,6 @@ class Group extends Component {
   render() {
     const { tabs, group } = this.state;
     const { contacts, expenses } = this.props;
-    console.log('djsahdasjh', group, expenses, group.expenses);
     return (
       <Container style={styles.mainBG}>
         <Header title={group.name} showBack />
@@ -90,15 +98,17 @@ class Group extends Component {
                 {tab === 'PARTECIPANTI' && (
                   <View style={{ paddingTop: 20, backgroundColor: '#f1f1f1' }}>
                     {group.contacts.map(id => (
-                      <View key={id} style={styles.itemRow} avatar>
-                        <View style={{ width: 100 }}>
-                          <Thumbnail source={contacts[id].avatar} />
-                        </View>
-                        <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-                          <Text style={{ flex: 1 }}>
-                            {`${contacts[id].name} ${contacts[id].lastname}`}
-                          </Text>
-                          <Text style={styles.note}>{contacts[id].date}</Text>
+                      <View key={id} style={styles.parentItemRow} avatar>
+                        <View style={styles.itemRow} avatar>
+                          <View style={{ width: 100 }}>
+                            <Thumbnail source={contacts[id].avatar} />
+                          </View>
+                          <View style={{ flexDirection: 'row', alignItems: 'center' }}>
+                            <Text style={{ flex: 1 }}>
+                              {`${contacts[id].name} ${contacts[id].lastname}`}
+                            </Text>
+                            <Text style={styles.note}>{contacts[id].date}</Text>
+                          </View>
                         </View>
                       </View>
                     ))}

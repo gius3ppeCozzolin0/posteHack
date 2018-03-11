@@ -4,24 +4,29 @@ import { StyleSheet, TouchableHighlight } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Header from './Header';
 
-const onPress = (expenseId, transactionId) => Actions.transactionDetails({
-  match: {
-    params: {
-      expenseId,
-      transactionId,
+const onPress = (expenseId, transactionId) =>
+  Actions.transactionDetails({
+    match: {
+      params: {
+        expenseId,
+        transactionId,
+      },
     },
-  },
-});
+  });
 
 const styles = StyleSheet.create({
   mainBG: {
     backgroundColor: '#f1f1f1',
   },
+  parentItemRow: {
+    paddingLeft: 16,
+    paddingRight: 16,
+    backgroundColor: '#fff',
+  },
   itemRow: {
     backgroundColor: 'white',
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 16,
+    paddingTop: 16,
+    paddingBottom: 16,
     borderBottomColor: 'rgb(224,224,224)',
     borderBottomWidth: 1,
   },
@@ -50,8 +55,8 @@ class Transactions extends Component {
 
     return (
       <TouchableHighlight key={transaction.id} onPress={() => onPress(expense.id, transaction.id)}>
-        <View style={styles.itemRow} avatar >
-          <View>
+        <View style={styles.parentItemRow}>
+          <View style={styles.itemRow} avatar>
             <Text style={{ paddingBottom: 8 }}>{transaction.title}</Text>
             <Text note>{transaction.date}</Text>
           </View>

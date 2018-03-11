@@ -8,6 +8,11 @@ const styles = StyleSheet.create({
   mainBG: {
     backgroundColor: '#f1f1f1',
   },
+  parentItemRow: {
+    paddingLeft: 16,
+    paddingRight: 16,
+    backgroundColor: '#fff',
+  },
   itemRow: {
     backgroundColor: 'white',
     flexDirection: 'row',
@@ -28,13 +33,15 @@ const Groups = ({ groups, contacts }) => (
  id, name, contacts, image,
 }) => (
   <TouchableHighlight key={id} onPress={() => onPress(id)}>
-    <View style={styles.itemRow} avatar>
-      <View style={{ width: 100 }}>
-        <Thumbnail source={image} />
-      </View>
-      <View>
-        <Text style={{ paddingBottom: 8 }}>{name}</Text>
-        <Text note>{`${contacts.length} partecipanti`}</Text>
+    <View style={styles.parentItemRow}>
+      <View style={styles.itemRow} avatar>
+        <View style={{ width: 100 }}>
+          <Thumbnail source={image} />
+        </View>
+        <View>
+          <Text style={{ paddingBottom: 8 }}>{name}</Text>
+          <Text note>{`${contacts.length} partecipanti`}</Text>
+        </View>
       </View>
     </View>
   </TouchableHighlight>
