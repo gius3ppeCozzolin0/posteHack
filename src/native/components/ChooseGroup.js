@@ -51,6 +51,13 @@ class ChooseGroup extends React.Component {
   state = {
     create: true,
   };
+  onNextClick = () => {
+    if (this.state.create) {
+      Actions.createGroup();
+      return;
+    }
+    Actions.selectGroup();
+  };
   render() {
     return (
       <Container style={styles.mainBG}>
@@ -100,7 +107,7 @@ class ChooseGroup extends React.Component {
             </View>
           </View>
           <View style={styles.submit}>
-            <YellowButton label="INVITA" onPress={Actions.createPayment} />
+            <YellowButton label="INVITA" onPress={this.onNextClick} />
           </View>
         </Content>
       </Container>

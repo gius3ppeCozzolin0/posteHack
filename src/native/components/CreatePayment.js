@@ -174,7 +174,7 @@ class CreatePayment extends React.Component {
               </View>
             </View>
             <View style={styles.section}>
-              <YellowButton label="Avanti" onPress={Actions.chooseGroup} />
+              <YellowButton label="Avanti" onPress={Actions.qr} />
             </View>
           </Form>
         </Content>

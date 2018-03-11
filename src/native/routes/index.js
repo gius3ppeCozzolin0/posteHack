@@ -18,6 +18,10 @@ import GroupsContainer from '../containers/Groups';
 import Group from '../components/Group';
 import ChooseGroupComponent from '../components/ChooseGroup';
 import CreatePaymentContainer from '../containers/CreatePayment';
+import SelectGroupComponent from '../components/SelectGroup';
+import CreateGroupComponent from '../components/CreateGroup';
+import SelectGroupContainer from '../containers/SelectGroup';
+import CreateGroupContainer from '../containers/CreateGroup';
 
 const iconStyles = { width: 24, height: 24 };
 
@@ -63,6 +67,8 @@ const Index = (
           Layout={CreatePaymentComponent}
           component={CreatePaymentContainer}
         />
+        <Scene key="selectGroup" component={SelectGroupContainer} Layout={SelectGroupComponent} />
+        <Scene key="createGroup" component={CreateGroupContainer} Layout={CreateGroupComponent} />
         <Scene key="qr" component={QrComponent} />
         <Scene key="payNow" component={PayComponent} />
       </Stack>

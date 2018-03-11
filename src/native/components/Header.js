@@ -23,15 +23,14 @@ const PosteHeader = ({
             <Icon name="ios-arrow-round-back" style={{ color: '#424242' }} />
           </Button>
         )}
+        {showExit && (
+          <Button transparent onPress={() => Actions.pop()}>
+            <Icon name="ios-close" style={{ color: '#424242' }} />
+          </Button>
+        )}
       </Left>
     )}
-    {showExit && (
-      <Left>
-        <Button transparent onPress={() => Actions.pop()}>
-          <Icon name="ios-close" style={{ color: '#424242' }} />
-        </Button>
-      </Left>
-    )}
+
     {!showLogo && (
       <Body>
         <Title style={{ color: 'rgb(66,66,66)', fontSize: 16, overflow: 'visible' }}>{title}</Title>

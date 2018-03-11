@@ -7,6 +7,7 @@
  */
 
 const initialState = {
+  selectedGroup: null,
   items: {
     1: {
       id: 1,
@@ -112,6 +113,12 @@ const initialState = {
 
 const groupsReducer = (state = initialState, action) => {
   switch (action.type) {
+    case 'GROUPS/SELECT_GROUP': {
+      return {
+        ...state,
+        selectedGroup: action.groupId,
+      };
+    }
     default:
       return state;
   }
