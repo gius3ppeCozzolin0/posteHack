@@ -1,16 +1,5 @@
 import React from 'react';
-import {
-  Body,
-  Container,
-  Content,
-  Left,
-  List,
-  ListItem,
-  Right,
-  View,
-  Text,
-  Thumbnail,
-} from 'native-base';
+import { Container, Content, Text, Thumbnail, View } from 'native-base';
 import { StyleSheet, TouchableHighlight } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import Header from './Header';

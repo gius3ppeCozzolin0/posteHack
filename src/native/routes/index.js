@@ -15,6 +15,8 @@ import PaymentsComponent from '../components/Payments';
 import FormComponent from '../components/Form';
 import GroupsContainer from '../containers/Groups';
 import Group from '../components/Group';
+import Transactions from '../components/Transactions';
+import TransactionDetails from '../components/TransactionDetails';
 
 const iconStyles = { width: 24, height: 24 };
 
@@ -67,6 +69,24 @@ const Index = (
       {...DefaultProps.navbarProps}
       component={GroupsContainer}
       Layout={Group}
+    />
+    <Scene
+      back
+      clone
+      key="transactions"
+      title="transactions"
+      {...DefaultProps.navbarProps}
+      component={GroupsContainer}
+      Layout={Transactions}
+    />
+    <Scene
+      back
+      clone
+      key="transactionDetails"
+      title="transactionDetails"
+      {...DefaultProps.navbarProps}
+      component={GroupsContainer}
+      Layout={TransactionDetails}
     />
     <Scene
       back

@@ -1,23 +1,13 @@
 import React, { Component } from 'react';
-import {
-  Container,
-  Content,
-  Tab,
-  Tabs,
-  Text,
-  View,
-  Body,
-  Left,
-  List,
-  ListItem,
-  Right,
-  Thumbnail,
-} from 'native-base';
+import { Container, Content, Tab, Tabs, Text, Thumbnail, View } from 'native-base';
 import { StyleSheet, TouchableHighlight } from 'react-native';
-import Header from './Header';
 import { Actions } from 'react-native-router-flux';
+import Header from './Header';
 
 const styles = StyleSheet.create({
+  mainBG: {
+    backgroundColor: '#f1f1f1',
+  },
   itemRow: {
     backgroundColor: 'white',
     flexDirection: 'row',
@@ -33,19 +23,48 @@ const styles = StyleSheet.create({
   },
 });
 
+const onPress = (groupId, expenseId) => Actions.transactions({ match: { params: { groupId, expenseId } } });
+
 class Group extends Component {
   constructor(props) {
     super(props);
     this.state = {
       tabs: ['PAGAMENTI', 'PARTECIPANTI'],
-      group: props.groups.find(({ id }) => id === props.match.params.id),
+      group: props.groupss[props.match.params.id],
     };
+
+    this.renderExpense = this.renderExpense.bind(this);
+    this.onPress = this.onPress.bind(this);
+  }
+
+  onPress(expenseId) {
+    Actions.transactions({ match: { params: { expenseId } } });
+  }
+
+  renderExpense(expenseId) {
+    const { expenses } = this.props;
+    const expense = expenses[expenseId];
+
+    return (
+      <TouchableHighlight key={expense.id} onPress={() => this.onPress(expense.id)}>
+        <View style={styles.itemRow} avatar >
+          <View style={{ width: 100 }}>
+            <Thumbnail source={expense.image} />
+          </View>
+          <View>
+            <Text style={{ paddingBottom: 8 }}>{expense.title}</Text>
+            <Text note>{expense.subtitle}</Text>
+          </View>
+        </View>
+      </TouchableHighlight>
+    );
   }
   render() {
     const { tabs, group } = this.state;
-    const { contacts } = this.props;
+    const { contacts, expenses } = this.props;
+    console.log('djsahdasjh', group, expenses, group.expenses);
     return (
-      <Container>
+      <Container style={styles.mainBG}>
         <Header title={group.name} showBack />
         <Content>
           <Tabs
@@ -64,28 +83,14 @@ class Group extends Component {
                 activeTextStyle={{ color: 'rgb(66,66,66)' }}
               >
                 {tab === 'PAGAMENTI' && (
-                  <View>
-                    {group.expenses.map(({
- id, title, subtitle, image,
-}) => (
-  <TouchableHighlight key={id} onPress={() => onPress(id)}>
-    <View style={styles.itemRow} avatar onPress={() => console.log(id)}>
-      <View style={{ width: 100 }}>
-        <Thumbnail source={image} />
-      </View>
-      <View>
-        <Text style={{ paddingBottom: 8 }}>{title}</Text>
-        <Text note>{subtitle}</Text>
-      </View>
-    </View>
-  </TouchableHighlight>
-                    ))}
+                  <View style={{ paddingTop: 20, backgroundColor: '#f1f1f1' }}>
+                    {group.expenses.map(this.renderExpense)}
                   </View>
                 )}
                 {tab === 'PARTECIPANTI' && (
-                  <View>
+                  <View style={{ paddingTop: 20, backgroundColor: '#f1f1f1' }}>
                     {group.contacts.map(id => (
-                      <View key={id} style={styles.itemRow} avatar onPress={() => console.log(id)}>
+                      <View key={id} style={styles.itemRow} avatar>
                         <View style={{ width: 100 }}>
                           <Thumbnail source={contacts[id].avatar} />
                         </View>

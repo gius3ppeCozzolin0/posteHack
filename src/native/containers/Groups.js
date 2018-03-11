@@ -4,19 +4,45 @@ import { connect } from 'react-redux';
 import groupsActions from '../actions/groups';
 
 const GroupsContainer = ({
-  Layout, groups, contacts, match,
+  Layout,
+  groups,
+  groupss,
+  contacts,
+  match,
+  expenses,
+  transactions,
+  userTransactions,
 }) => (
-  <Layout contacts={contacts} groups={groups} match={match} />
+  <Layout
+    match={match}
+    contacts={contacts}
+    groups={groups}
+    groupss={groupss}
+    expenses={expenses}
+    transactions={transactions}
+    userTransactions={userTransactions}
+  />
 );
 
 const mapStateToProps = (state) => {
   const groups = { ...state.groups.items };
   const contacts = { ...state.contacts.items };
   const groupsOrder = [...state.groups.order];
+  const expenses = { ...state.expenses.items };
+  const transactions = { ...state.transactions.items };
+  const userTransactions = { ...state.userTransactions.items };
+
+  console.log('expenses', expenses);
+  console.log('transactions', transactions);
+  console.log('userTransactions', userTransactions);
 
   return {
+    groupss: groups,
     groups: groupsOrder.map(groupId => groups[groupId]),
     contacts,
+    expenses,
+    transactions,
+    userTransactions,
   };
 };
 
