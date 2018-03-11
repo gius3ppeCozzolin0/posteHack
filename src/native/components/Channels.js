@@ -2,8 +2,9 @@ import React from 'react';
 import { Container, Content, Text, View, Label } from 'native-base';
 import { Image, TouchableHighlight, StyleSheet, Dimensions, FlatList } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import PosteHeader from './Header';
 
-const { width } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 const slideWidthBig = width * 0.52;
 const slideWidthSmall = width * 0.31;
 
@@ -23,7 +24,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     shadowColor: '#424242',
     shadowOpacity: 0.2,
-    shadowRadius: 4,
+    shadowRadius: 2,
+    overflow: 'hidden',
+    borderRadius: 6,
     backgroundColor: '#fff',
     // other styles for the inner container
   },
@@ -44,13 +47,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     shadowColor: '#424242',
     shadowOpacity: 0.2,
-    shadowRadius: 1,
+    shadowRadius: 2,
+    overflow: 'hidden',
     backgroundColor: '#fff',
+    borderRadius: 6,
     // other styles for the inner container
   },
   logoSmall: {
-    width: 84,
-    height: 30,
+    width: '70%',
+    height: '35%',
     resizeMode: 'contain',
   },
   content: {
@@ -67,17 +72,20 @@ const styles = StyleSheet.create({
   },
   flashBox: {
     width: '100%',
-    height: 143,
+    height: height * 0.22,
     justifyContent: 'center',
     alignItems: 'center',
     shadowColor: '#424242',
     shadowOpacity: 0.2,
-    shadowRadius: 4,
+    shadowRadius: 2,
+    overflow: 'hidden',
+    borderRadius: 6,
     backgroundColor: '#fff',
   },
   flashLogo: {
-    width: 84,
-    height: 30,
+    width: 102,
+    height: 72,
+    marginBottom: 8,
     resizeMode: 'contain',
   },
 });
@@ -91,6 +99,9 @@ class Channels extends React.Component {
         },
         {
           illustration: require('../../images/logos/spotify.png'),
+        },
+        {
+          illustration: require('../../images/logos/apple_music.png'),
         },
       ],
       utenze: [
@@ -128,18 +139,20 @@ class Channels extends React.Component {
   render() {
     return (
       <Container style={styles.mainBG}>
+        <PosteHeader showBack title="Nuovo pagamento" />
         <Content contentContainerStyle={styles.content} padder>
           <View style={styles.section}>
             <Label style={styles.label}>Crea un pagamento da zero</Label>
             <View style={styles.flashBox}>
-              <Image style={styles.flashLogo} source={require('../../images/logos/enel.png')} />
-              <Text>Gestisci un gruppo</Text>
-              <Text>fai pagamenti immediati</Text>
+              <Image style={styles.flashLogo} source={require('../../images/logos/card.png')} />
+              <Text style={{ fontSize: 19 }}>Gestisci un gruppo</Text>
+              <Text style={{ fontSize: 19 }}>fai pagamenti immediati</Text>
             </View>
           </View>
           <View style={styles.section}>
             <Label style={styles.label}>Entertaiment</Label>
             <FlatList
+              keyExtractor={(item, index) => index}
               showsHorizontalScrollIndicator={false}
               horizontal
               data={this.state.entertaiment}
@@ -149,6 +162,7 @@ class Channels extends React.Component {
           <View style={styles.section}>
             <Label style={styles.label}>Utenze</Label>
             <FlatList
+              keyExtractor={(item, index) => index}
               showsHorizontalScrollIndicator={false}
               horizontal
               data={this.state.utenze}
