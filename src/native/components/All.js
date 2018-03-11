@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { Container, Content, Text } from 'native-base';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
-import { View, Image } from 'react-native';
+import { View, Image, TouchableHighlight } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 class All extends Component {
   constructor(props) {
@@ -52,9 +53,12 @@ class All extends Component {
   }
   renderItem({ item, index }) {
     return (
+
       <View key={index}>
         <Text>{item.title}</Text>
-        <Image source={require('../../images/meme-1.png')} />
+        <TouchableHighlight onPress={Actions.payments}>
+          <Image source={require('../../images/meme-1.png')} />
+        </TouchableHighlight>
       </View>
     );
   }
@@ -92,6 +96,7 @@ class All extends Component {
             ref={(c) => {
               this.carousel = c;
             }}
+
             data={this.state.entries}
             renderItem={this.renderItem}
             sliderWidth={450}
